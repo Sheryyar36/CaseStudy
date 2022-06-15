@@ -1,0 +1,36 @@
+body {
+    background-image: linear-gradient(to right, black, teal);
+    display:grid;
+    height:auto;
+    width:auto;
+    grid-template-columns: 2fr 10fr;
+    grid-template-rows: 1fr 8fr 1fr;
+    grid-template-areas:
+        "header nav"
+        "div main"
+        "footer footer";
+}
+header{
+    color:aliceblue
+}
+nav{
+    display: flex;
+    align-items:center;
+    justify-content: space-evenly;
+}
+div{
+    background-image: url(cadecusedit.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+img{
+    height: auto;
+    width: auto;
+}
+main{
+    background-image: url(Scroll-Download-PNG.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
