@@ -24,16 +24,16 @@ nav{
     justify-content: space-evenly;
 }
 
-div{
+#div{
     grid-area: div;
-    background-image: url(cadecusedit.jpg);
+    background-image: url(/images/cadecusedit.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 main{
     grid-area: main;
-    background-image: url(Scroll-Download-PNG.png);
+    background-image: url(/images/Scroll-Download-PNG.png);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -82,5 +82,6 @@ img{
     font-size: 20px;
     font-family: 'Anton', sans-serif;
 }
+
 
 
