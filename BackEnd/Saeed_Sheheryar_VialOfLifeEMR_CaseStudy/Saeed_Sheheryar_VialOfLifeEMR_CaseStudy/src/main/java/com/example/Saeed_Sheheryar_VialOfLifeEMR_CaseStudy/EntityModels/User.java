@@ -18,7 +18,7 @@ public class User {
 	private String username;
 	@Column(name = "password", nullable = false, length = 50)
 	private String password;
-	@Column(name = "emtId", nullable = true)
+	@Column(name = "emtid", nullable = true)
 	private Integer emtId;
 	@OneToOne
     @JoinColumn(name="fullname", referencedColumnName="fullname")
@@ -29,7 +29,7 @@ public class User {
 	
 	public User() {
 	}
-	public User(UserId id, String sex, String address, String username, String password, Integer emtId, Record record) {
+	public User(UserId id, String sex, String address, String username, String password, Integer emtId) {
 		super();
 		this.id = id;
 		this.sex = sex;
@@ -37,7 +37,6 @@ public class User {
 		this.username = username;
 		this.password = password;
 		this.emtId = emtId;
-		this.record = record;
 	}
 	
 	public UserId getId() {
@@ -76,12 +75,6 @@ public class User {
 	public void setEmtId(Integer emtId) {
 		this.emtId = emtId;
 	}
-	public Record getRecord() {
-		return record;
-	}
-	public void setRecord(Record record) {
-		this.record = record;
-	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(address, emtId, id, password, record, sex, username);
@@ -103,7 +96,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", sex=" + sex + ", address=" + address + ", username=" + username + ", password="
-				+ password + ", emtId=" + emtId + ", record=" + record + "]";
+				+ password + ", emtId=" + emtId + "]";
 	}
 	
 	

@@ -22,12 +22,11 @@ public class Record {
 
 	public Record() {
 	}
-	public Record(String allergies, String medications, String history, User user) {
+	public Record(String allergies, String medications, String history) {
 		super();
 		this.allergies = allergies;
 		this.medications = medications;
 		this.history = history;
-		this.user = user;
 	}
 	public String getAllergies() {
 		return allergies;
@@ -47,12 +46,7 @@ public class Record {
 	public void setHistory(String history) {
 		this.history = history;
 	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(allergies, history, medications, user);
@@ -71,8 +65,7 @@ public class Record {
 	}
 	@Override
 	public String toString() {
-		return "Record [allergies=" + allergies + ", medications=" + medications + ", history=" + history + ", user="
-				+ user + "]";
+		return "Record [allergies=" + allergies + ", medications=" + medications + ", history=" + history + "]";
 	}
 	
 	

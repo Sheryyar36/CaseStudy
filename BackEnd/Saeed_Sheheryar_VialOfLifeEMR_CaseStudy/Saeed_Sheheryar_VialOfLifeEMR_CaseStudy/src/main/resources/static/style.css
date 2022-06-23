@@ -81,12 +81,14 @@ img{
     width: 150px;
     font-size: 20px;
     font-family: 'Anton', sans-serif;
+    cursor: pointer;
 }
 .button1{
 	height: 50px;
 	width: 150px;
 	font-size: 15px;
-	font-family: 'Kalam', cursive; 
+	font-family: 'Kalam', cursive;
+	cursor: pointer; 
 }
 
 
