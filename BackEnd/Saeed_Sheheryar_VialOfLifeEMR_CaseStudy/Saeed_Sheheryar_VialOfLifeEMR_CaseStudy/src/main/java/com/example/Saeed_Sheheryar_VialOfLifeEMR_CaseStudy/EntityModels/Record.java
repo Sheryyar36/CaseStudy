@@ -47,9 +47,10 @@ public class Record {
 		this.history = history;
 	}
 	
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(allergies, history, medications, user);
+		return Objects.hash(allergies, history, id, medications, user);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -61,12 +62,15 @@ public class Record {
 			return false;
 		Record other = (Record) obj;
 		return Objects.equals(allergies, other.allergies) && Objects.equals(history, other.history)
-				&& Objects.equals(medications, other.medications) && Objects.equals(user, other.user);
+				&& Objects.equals(id, other.id) && Objects.equals(medications, other.medications)
+				&& Objects.equals(user, other.user);
 	}
 	@Override
 	public String toString() {
-		return "Record [allergies=" + allergies + ", medications=" + medications + ", history=" + history + "]";
+		return "Record [id=" + id + ", allergies=" + allergies + ", medications=" + medications + ", history=" + history
+				+ ", user=" + user + "]";
 	}
+	
 	
 	
 	

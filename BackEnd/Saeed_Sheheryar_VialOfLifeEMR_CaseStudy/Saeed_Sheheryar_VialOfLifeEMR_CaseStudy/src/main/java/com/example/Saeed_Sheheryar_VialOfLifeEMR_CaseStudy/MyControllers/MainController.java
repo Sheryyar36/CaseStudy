@@ -1,35 +1,36 @@
 package com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyControllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
-	@RequestMapping("/index.html")
+	@GetMapping("/index")
 	public String about() {
 		return "index";
 	}
-	@RequestMapping("/login.html")
+	@GetMapping("/login")
 	public String login() {
 		return "login";
 	}
-	@RequestMapping("/create.html")
+	@GetMapping("/create")
 	public String create() {
 		return "create";
 	}
-	@RequestMapping("/register.html")
+	@GetMapping("/register")
 	public String register() {
 		return "register";
 	}
-	@RequestMapping("/search.html")
+	@GetMapping("/search")
 	public String search() {
 		return "search";
 	}
-	@RequestMapping("/contact.html")
+	@GetMapping("/contact")
 	public String contact() {
 		return "contact";
 	}
-	@RequestMapping("/results.html")
+	@GetMapping("/results")
 	public String results() {
 		return "results";
 	}
