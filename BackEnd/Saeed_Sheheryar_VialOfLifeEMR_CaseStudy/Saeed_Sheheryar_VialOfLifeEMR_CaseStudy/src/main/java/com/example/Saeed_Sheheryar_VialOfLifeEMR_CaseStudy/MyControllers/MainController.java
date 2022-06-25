@@ -18,10 +18,6 @@ public class MainController {
 	public String create() {
 		return "create";
 	}
-	@GetMapping("/register")
-	public String register() {
-		return "register";
-	}
 	@GetMapping("/search")
 	public String search() {
 		return "search";

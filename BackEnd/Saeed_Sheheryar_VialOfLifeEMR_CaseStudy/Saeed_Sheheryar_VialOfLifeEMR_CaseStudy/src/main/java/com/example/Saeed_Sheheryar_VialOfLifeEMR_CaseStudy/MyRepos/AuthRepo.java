@@ -6,4 +6,5 @@ import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.UserId;
 
 public interface AuthRepo extends JpaRepository<Auth, UserId>{
 
+	Auth findByEmail(String email);
 }

@@ -2,16 +2,11 @@ package com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyServices;
 
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.Auth;
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.UserId;
+import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyRepos.AuthRegDto;
 
 public interface AuthService {
 	
-	Auth createAuth(Auth auth);
+	Auth findByEmail(String email);
 	
-	Auth readAuthByID(UserId id);
-	
-	Auth updateAuth(Auth auth);
-	
-	void deleteAuthByID(UserId id);
-	
-	
+	Auth saveAuth(AuthRegDto authregdto);
 }

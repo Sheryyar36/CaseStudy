@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Auth {
 	
 	@EmbeddedId
-	private UserId id;
+	public UserId id;
 	@Column(name = "email", nullable = false, length = 50)
 	private String email;
 	@Column(name = "password", nullable = false, length = 50)
@@ -28,6 +28,48 @@ public class Auth {
 		this.email = username;
 		this.password = password;
 		this.emtId = emtId;
+	}
+
+	
+	
+	public UserId getId() {
+		return id;
+	}
+
+	public void setId(UserId id) {
+		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Integer getEmtId() {
+		return emtId;
+	}
+
+	public void setEmtId(Integer emtId) {
+		this.emtId = emtId;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
