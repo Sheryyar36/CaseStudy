@@ -8,25 +8,26 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class UserId implements Serializable{
-	
+public class AuthId implements Serializable{
+
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "fullname", nullable = false, length = 50)
 	private String fullname;
 	@Column(name = "DOB", nullable = false, length = 50, columnDefinition = "DATE")
 	private LocalDate DOB;
-	public UserId() {
+	
+	public AuthId() {
 	}
-	public UserId(String fullName, LocalDate DOB) {
+	public AuthId(String fullName, LocalDate DOB) {
 		this.fullname = fullName;
 		this.DOB = DOB;
 	}
-	public String getFullName() {
+	public String getFullname() {
 		return fullname;
 	}
-	public void setFullName(String fullName) {
-		this.fullname = fullName;
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
 	}
 	public LocalDate getDOB() {
 		return DOB;
@@ -46,7 +47,13 @@ public class UserId implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UserId other = (UserId) obj;
+		AuthId other = (AuthId) obj;
 		return Objects.equals(DOB, other.DOB) && Objects.equals(fullname, other.fullname);
 	}
+	@Override
+	public String toString() {
+		return "AuthId [fullname=" + fullname + ", DOB=" + DOB + "]";
+	}
+	
+	
 }

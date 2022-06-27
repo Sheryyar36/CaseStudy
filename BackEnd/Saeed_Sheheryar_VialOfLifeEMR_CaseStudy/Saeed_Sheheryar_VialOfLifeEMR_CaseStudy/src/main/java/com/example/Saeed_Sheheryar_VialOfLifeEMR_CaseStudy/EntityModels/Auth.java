@@ -4,25 +4,37 @@ import java.util.Objects;
 
 import javax.persistence.*;
 
+import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.Record;
+
 @Entity
 @Table(name = "auth")
 public class Auth {
 	
 	@EmbeddedId
-	public UserId id;
+	public AuthId id= new AuthId();
 	@Column(name = "email", nullable = false, length = 50)
 	private String email;
 	@Column(name = "password", nullable = false, length = 50)
 	private String password;
 	@Column(name = "emtid", nullable = true)
 	private Integer emtId;
-	@OneToOne(mappedBy = "auth")
+	
+	@OneToOne
+    @JoinColumn(name="fullname", referencedColumnName="fullname")
+    @JoinColumn(name="DOB", referencedColumnName="DOB")
+    @MapsId
+    private Record record;
+	
+	@OneToOne
+    @JoinColumn(name="fullname", referencedColumnName="fullname")
+    @JoinColumn(name="DOB", referencedColumnName="DOB")
+    @MapsId
     private User user;
 	
 	public Auth() {
 	}
 
-	public Auth(UserId id, String username, String password, Integer emtId) {
+	public Auth(AuthId id, String username, String password, Integer emtId) {
 		super();
 		this.id = id;
 		this.email = username;
@@ -32,11 +44,11 @@ public class Auth {
 
 	
 	
-	public UserId getId() {
+	public AuthId getId() {
 		return id;
 	}
 
-	public void setId(UserId id) {
+	public void setId(AuthId id) {
 		this.id = id;
 	}
 

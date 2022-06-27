@@ -1,9 +1,11 @@
 package com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyServices;
 
-import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.User;
-import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.UserId;
-import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyRepos.UserRepo;
+import org.springframework.stereotype.Service;
 
+import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.AuthId;
+import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.User;
+import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyRepos.UserRepo;
+@Service
 public class UserServiceImpl implements UserService{
 	
 	private UserRepo userrepo;
@@ -19,7 +21,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User readAuthByID(UserId id) {
+	public User readAuthByID(AuthId id) {
 		return userrepo.findById(id).get();
 	}
 
@@ -29,7 +31,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public void deleteAuthByID(UserId id) {
+	public void deleteAuthByID(AuthId id) {
 		userrepo.deleteById(id);
 		
 	}

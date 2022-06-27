@@ -10,15 +10,16 @@ import javax.persistence.*;
 public class Record {
 	
 	@EmbeddedId
-	private UserId id;
+	private AuthId id;
 	@Column(name = "allergies", nullable = true, length = 50)
 	private String allergies;
 	@Column(name = "medications", nullable = true, length = 100)
 	private String medications;
 	@Column(name = "history", nullable = true, length = 100)
 	private String history;
+	
 	@OneToOne(mappedBy = "record")
-    private User user;
+    private Auth auth;
 
 	public Record() {
 	}
@@ -46,11 +47,9 @@ public class Record {
 	public void setHistory(String history) {
 		this.history = history;
 	}
-	
-	
 	@Override
 	public int hashCode() {
-		return Objects.hash(allergies, history, id, medications, user);
+		return Objects.hash(allergies, auth, history, id, medications);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -61,15 +60,17 @@ public class Record {
 		if (getClass() != obj.getClass())
 			return false;
 		Record other = (Record) obj;
-		return Objects.equals(allergies, other.allergies) && Objects.equals(history, other.history)
-				&& Objects.equals(id, other.id) && Objects.equals(medications, other.medications)
-				&& Objects.equals(user, other.user);
+		return Objects.equals(allergies, other.allergies) && Objects.equals(auth, other.auth)
+				&& Objects.equals(history, other.history) && Objects.equals(id, other.id)
+				&& Objects.equals(medications, other.medications);
 	}
 	@Override
 	public String toString() {
 		return "Record [id=" + id + ", allergies=" + allergies + ", medications=" + medications + ", history=" + history
-				+ ", user=" + user + "]";
+				+ ", auth=" + auth + "]";
 	}
+	
+	
 	
 	
 	

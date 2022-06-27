@@ -1,7 +1,6 @@
 package com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyServices;
 
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.Auth;
-import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.UserId;
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyRepos.AuthRegDto;
 
 public interface AuthService {

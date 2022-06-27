@@ -1,9 +1,12 @@
 package com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyServices;
 
+import org.springframework.stereotype.Service;
+
+import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.AuthId;
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.Record;
-import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.UserId;
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyRepos.RecordRepo;
 
+@Service
 public class RecordServiceImpl implements RecordService{
 	
 	private RecordRepo recordrepo;
@@ -19,7 +22,7 @@ public class RecordServiceImpl implements RecordService{
 	}
 
 	@Override
-	public Record readRecordByID(UserId id) {
+	public Record readRecordByID(AuthId id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -31,7 +34,7 @@ public class RecordServiceImpl implements RecordService{
 	}
 
 	@Override
-	public Void deleteRecordByID(UserId id) {
+	public Void deleteRecordByID(AuthId id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -9,35 +9,28 @@ import javax.persistence.*;
 public class User {
 	
 	@EmbeddedId
-	private UserId id;
+	private AuthId id;
 	@Column(name = "sex", nullable = false, length = 10)
 	private String sex;
 	@Column(name = "address", nullable = false, length = 100)
 	private String address;
-	@OneToOne
-    @JoinColumn(name="fullname", referencedColumnName="fullname")
-    @JoinColumn(name="DOB", referencedColumnName="DOB")
-    @MapsId
-    private Record record;
-	@OneToOne
-    @JoinColumn(name="fullname", referencedColumnName="fullname")
-    @JoinColumn(name="DOB", referencedColumnName="DOB")
-    @MapsId
+	
+	@OneToOne(mappedBy = "user")
     private Auth auth;
 	
 	public User() {
 	}
-	public User(UserId id, String sex, String address) {
+	public User(AuthId id, String sex, String address) {
 		super();
 		this.id = id;
 		this.sex = sex;
 		this.address = address;
 	}
 	
-	public UserId getId() {
+	public AuthId getId() {
 		return id;
 	}
-	public void setId(UserId id) {
+	public void setId(AuthId id) {
 		this.id = id;
 	}
 	public String getSex() {
@@ -52,29 +45,7 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	@Override
-	public int hashCode() {
-		return Objects.hash(address, auth, id, record, sex);
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		return Objects.equals(address, other.address) && Objects.equals(auth, other.auth)
-				&& Objects.equals(id, other.id) && Objects.equals(record, other.record)
-				&& Objects.equals(sex, other.sex);
-	}
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", sex=" + sex + ", address=" + address + ", record=" + record + ", auth=" + auth
-				+ "]";
-	}
-	
+
 	
 	
 	
