@@ -7,10 +7,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.Auth;
-import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.AuthId;
 
 @Repository
-public interface AuthRepo extends JpaRepository<Auth, AuthId>{
+public interface AuthRepo extends JpaRepository<Auth, Long>{
 
 	Auth findByEmail(String email);
 	List<Auth> findAll();

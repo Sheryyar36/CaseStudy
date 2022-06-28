@@ -4,13 +4,15 @@ import java.util.Objects;
 
 import javax.persistence.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Entity
 @Table(name = "record")
 
 public class Record {
-	
-	@EmbeddedId
-	private AuthId id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	@Column(name = "sex", nullable = false, length = 10)
 	private String sex;
 	@Column(name = "address", nullable = false, length = 100)
@@ -28,7 +30,7 @@ public class Record {
 	public Record() {
 	}
 
-	public Record(AuthId id, String sex, String address, String allergies, String medications, String history) {
+	public Record(Long id, String sex, String address, String allergies, String medications, String history) {
 		super();
 		this.id = id;
 		this.sex = sex;
@@ -38,11 +40,23 @@ public class Record {
 		this.history = history;
 	}
 
-	public AuthId getId() {
+	public Record(Long id, String sex, String address, String allergies, String medications, String history,
+			Auth auth) {
+		super();
+		this.id = id;
+		this.sex = sex;
+		this.address = address;
+		this.allergies = allergies;
+		this.medications = medications;
+		this.history = history;
+		this.auth = auth;
+	}
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(AuthId id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -119,10 +133,7 @@ public class Record {
 		return "Record [id=" + id + ", sex=" + sex + ", address=" + address + ", allergies=" + allergies
 				+ ", medications=" + medications + ", history=" + history + ", auth=" + auth + "]";
 	}
-	
-	
-	
-	
+
 	
 	
 	

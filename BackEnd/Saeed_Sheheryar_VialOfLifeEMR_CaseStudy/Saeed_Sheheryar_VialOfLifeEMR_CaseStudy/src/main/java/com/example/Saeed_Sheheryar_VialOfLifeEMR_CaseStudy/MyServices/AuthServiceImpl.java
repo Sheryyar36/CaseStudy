@@ -1,6 +1,5 @@
 package com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyServices;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -13,7 +12,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.Auth;
-import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.AuthId;
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.Role;
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyRepos.AuthRegDto;
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyRepos.AuthRepo;
@@ -28,7 +26,8 @@ public class AuthServiceImpl implements AuthService{
 	
 	public Auth saveAuth(AuthRegDto authregdto){
 	       Auth auth = new Auth();
-	       auth.setId(new AuthId(authregdto.getFullname(), authregdto.getDOB()));
+	       auth.setFullname(authregdto.getFullname());
+	       auth.setDOB(authregdto.getDOB());
 	       auth.setEmail(authregdto.getEmail());
 	       auth.setPassword(authregdto.getPassword());
 	       auth.setEmtId(authregdto.getEmtId());
