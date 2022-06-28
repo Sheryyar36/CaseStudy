@@ -1,10 +1,16 @@
 package com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyRepos;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+@SuppressWarnings("deprecation")
 @FieldMatch.List({
     @FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match"),
     @FieldMatch(first = "email", second = "confirmEmail", message = "The email fields must match")
@@ -15,8 +21,9 @@ public class AuthRegDto {
 	@NotEmpty
 	private String fullname;
 	
-	@NotEmpty
-	private LocalDate DOB;
+	@NotNull
+	@DateTimeFormat(iso = ISO.DATE, fallbackPatterns = { "M/d/yy", "MM.DD.yyyy" })
+	private Date DOB;
 	
 	@Email
     @NotEmpty
@@ -42,11 +49,11 @@ public class AuthRegDto {
 		this.fullname = fullname;
 	}
 
-	public LocalDate getDOB() {
+	public Date getDOB() {
 		return DOB;
 	}
 
-	public void setDOB(LocalDate dOB) {
+	public void setDOB(Date dOB) {
 		DOB = dOB;
 	}
 

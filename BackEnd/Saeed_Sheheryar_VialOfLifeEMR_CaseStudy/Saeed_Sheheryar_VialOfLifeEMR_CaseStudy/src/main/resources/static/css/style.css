@@ -26,14 +26,14 @@ nav{
 
 #div{
     grid-area: div;
-    background-image: url(cadecusedit.jpg);
+    background-image: url(/img/cadecusedit.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 main{
     grid-area: main;
-    background-image: url(Scroll-Download-PNG.png);
+    background-image: url(/img/Scroll-Download-PNG.png);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;

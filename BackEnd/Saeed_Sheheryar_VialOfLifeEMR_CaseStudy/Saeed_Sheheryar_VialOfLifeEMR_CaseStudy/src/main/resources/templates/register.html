@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>&#9764;Vial of Life&#9764;</title>
-    <link href="/style.css" rel="stylesheet">
+    <link th:href="@{css/style.css}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -23,31 +23,31 @@
         <br>
         <div><form th:action="@{/register}" th:object="${user}" method="post" id="regform">
             <label for="fullname">Enter Full Name:</label>
-            <input type="text">
+            <input type="text" th:field="*{fullname}">
             <br>
             <br>
             <label for="DOB">Enter Date of Birth:</label>
-            <input type="date">
+            <input type="date" th:field="*{DOB}">
             <br>
             <br>
             <label for="EMTID">Enter EMT ID if Applicable:</label>
-            <input type="number">
+            <input type="number" th:field="*{emtId}">
             <br>
             <br>
             <label for="email">What's your Email:</label>
-            <input type="text">
+            <input type="text" th:field="*{email}">
             <br>
             <br>
             <label for="email">Confirm Email:</label>
-            <input type="text">
+            <input type="text" th:field="*{confirmEmail}">
             <br>
             <br>
             <label for="password">Select a Password:</label>
-            <input type="password">
+            <input type="password" th:field="*{password}">
             <br>
             <br>
             <label for="password">Confirm Password:</label>
-            <input type="password">
+            <input type="password" th:field="*{confirmPassword}">
             <br>
             <br>
             <input class="button1" name="register" type="submit" value="Register!">
@@ -58,6 +58,6 @@
 
     </main>
     <footer id="footer">&copy; 2022 Sheheryar Saeed</footer>
-    <section id="section"><img src="/images/phonepic.png" alt="phone icon"><h2>In case of EMERGENCY Call 911!</h2></section>
+    <section id="section"><img th:src="@{/img/phonepic.png}" alt="phone icon"><h2>In case of EMERGENCY Call 911!</h2></section>
 </body>
 </html>

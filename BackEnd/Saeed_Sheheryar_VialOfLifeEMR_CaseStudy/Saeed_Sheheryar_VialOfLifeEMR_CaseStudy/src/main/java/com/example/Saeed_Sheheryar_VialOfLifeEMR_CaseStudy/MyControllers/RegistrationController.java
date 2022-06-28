@@ -34,17 +34,19 @@ public class RegistrationController {
 	
 	@PostMapping
 	   public String registerAuth(@ModelAttribute("user") @Valid AuthRegDto authregdto, BindingResult result){
-
 	       Auth existing = authservice.findByEmail(authregdto.getEmail());
 	       if (existing != null){
 	           result.rejectValue("email", null, "There is already an account registered with that email");
 	       }
 
 	       if (result.hasErrors()){
+	    	   System.out.println("error occured");
+	    	   System.out.println(result.toString());
 	           return "register";
 	       }
-
+	       
 	       authservice.saveAuth(authregdto);
+	       System.out.println("Reg success");
 	       return "redirect:/registration?success";
 	   }
 }

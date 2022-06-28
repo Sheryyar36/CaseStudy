@@ -2,24 +2,28 @@ package com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Embeddable
 public class AuthId implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
 	@Column(name = "fullname", nullable = false, length = 50)
 	private String fullname;
 	@Column(name = "DOB", nullable = false, length = 50, columnDefinition = "DATE")
-	private LocalDate DOB;
+	private Date DOB;
 	
 	public AuthId() {
 	}
-	public AuthId(String fullName, LocalDate DOB) {
+	public AuthId(String fullName, Date DOB) {
 		this.fullname = fullName;
 		this.DOB = DOB;
 	}
@@ -29,10 +33,10 @@ public class AuthId implements Serializable{
 	public void setFullname(String fullname) {
 		this.fullname = fullname;
 	}
-	public LocalDate getDOB() {
+	public Date getDOB() {
 		return DOB;
 	}
-	public void setDOB(LocalDate dOB) {
+	public void setDOB(Date dOB) {
 		DOB = dOB;
 	}
 	@Override
