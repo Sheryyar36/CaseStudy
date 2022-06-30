@@ -9,7 +9,7 @@ import javax.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
-@Table(name = "auth")
+@Table(name = "auth", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Auth {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,7 +20,7 @@ public class Auth {
 	private Date DOB;
 	@Column(name = "email", nullable = false, length = 50)
 	private String email;
-	@Column(name = "password", nullable = false, length = 50)
+	@Column(name = "password", nullable = false, length = 100)
 	private String password;
 	@Column(name = "emtid", nullable = true)
 	private Integer emtId;
