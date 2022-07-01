@@ -13,6 +13,7 @@
     <header id="header"><h1>The Vial of Life EMR System</h1></header>
     <nav id="nav">
         <button class="button"><a th:href="@{index}">About</a></button>
+        <button class="button"><a th:href="@{/logout}">Logout</a></button>
         <button class="button"><a th:href="@{contact}">Contact</a></button>
     </nav>
     <div id="div"></div>
@@ -20,24 +21,32 @@
         <h1>Please Enter Patient Information to Create a Vial:</h1>
         <br>
         <br>
-        <div><form action="" id="Demographics">
+        <div><form th:action="@{/create}" th:object="${record}" method="post" id="createform">
+            <label for="address">Enter address:</label>
+            <input type="text" th:field="*{address}">
+            <br>
+            <br>
+            <label for="sex">Enter sex:</label>
+            <input type="text" th:field="*{sex}">
+            <br>
+            <br>
             <label for="allergies">Enter any allergies:</label>
-            <input type="text">
+            <input type="text" th:field="*{allergies}">
             <br>
             <br>
             <label for="medications">Enter any medications:</label>
-            <input type="text">
+            <input type="text" th:field="*{medications}">
             <br>
             <br>
             <label for="history">Enter any medical history:</label>
-            <input type="text">
+            <input type="text" th:field="*{history}">
             <br>
             <br>
-            <input name="login" type="submit" value="Next">
+            <input name="login" type="submit" value="Create Vial!">
         </form></div>
 
     </main>
     <footer id="footer">&copy; 2022 Sheheryar Saeed</footer>
-    <section id="section"><img th:src="@{/img/phonepic.png}"" alt="phone icon"><h2>In case of EMERGENCY Call 911!</h2></section>
+    <section id="section"><img th:src="@{/img/phonepic.png}" alt="phone icon"><h2>In case of EMERGENCY Call 911!</h2></section>
 </body>
 </html>

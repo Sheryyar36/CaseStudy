@@ -35,7 +35,7 @@ public class AuthServiceImpl implements AuthService{
 	       auth.setFullname(authregdto.getFullname());
 	       auth.setDOB(authregdto.getDOB());
 	       auth.setEmail(authregdto.getEmail());
-	       auth.setPassword(authregdto.getPassword());
+	       auth.setPassword(passwordEncoder.encode(authregdto.getPassword()));
 	       auth.setEmtId(authregdto.getEmtId());
 	       if (auth.getEmtId() == null){
 	    	   auth.setRoles(Arrays.asList(new Role("ROLE_USER")));

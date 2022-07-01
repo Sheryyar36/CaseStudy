@@ -5,9 +5,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.Auth;
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.Role;
@@ -36,10 +35,7 @@ public class MainController {
 		return "index";
 		}
 	}
-	@GetMapping("/create")
-	public String create() {
-		return "create";
-	}
+	
 	@GetMapping("/search")
 	public String search() {
 		return "search";
@@ -52,4 +48,10 @@ public class MainController {
 	public String results() {
 		return "results";
 	}
+	@ResponseBody
+	@GetMapping("/logoutSuccess")
+    public String logoutResponse()
+    {
+        return "Logged Out!!!!";
+    }
 }

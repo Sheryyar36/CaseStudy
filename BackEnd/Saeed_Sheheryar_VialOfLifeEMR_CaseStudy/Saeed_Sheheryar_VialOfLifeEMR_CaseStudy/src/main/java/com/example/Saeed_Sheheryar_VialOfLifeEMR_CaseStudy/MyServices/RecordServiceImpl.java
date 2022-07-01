@@ -1,5 +1,6 @@
 package com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyServices;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.Record;
@@ -8,12 +9,8 @@ import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyRepos.RecordRepo;
 @Service
 public class RecordServiceImpl implements RecordService{
 	
+	@Autowired
 	private RecordRepo recordrepo;
-	
-	public RecordServiceImpl(RecordRepo recordrepo) {
-		super();
-		this.recordrepo = recordrepo;
-	}
 
 	@Override
 	public Record createRecord(Record rec) {
@@ -22,20 +19,18 @@ public class RecordServiceImpl implements RecordService{
 
 	@Override
 	public Record readRecordByID(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return recordrepo.getReferenceById(id);
 	}
 
 	@Override
 	public Record updateRecord(Record rec) {
 		// TODO Auto-generated method stub
-		return null;
+		return recordrepo.save(rec);
 	}
 
 	@Override
-	public Void deleteRecordByID(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public void deleteRecordByID(Long id) {
+		recordrepo.deleteById(id);
 	}
 	
 }
