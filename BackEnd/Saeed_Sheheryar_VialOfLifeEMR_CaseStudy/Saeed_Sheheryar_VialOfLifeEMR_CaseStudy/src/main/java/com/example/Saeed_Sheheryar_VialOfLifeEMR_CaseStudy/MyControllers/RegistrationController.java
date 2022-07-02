@@ -47,6 +47,6 @@ public class RegistrationController {
 	       
 	       authservice.saveAuth(authregdto);
 	       System.out.println("Reg success");
-	       return "redirect:/registration?success";
+	       return "redirect:/";
 	   }
 }

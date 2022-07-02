@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class Record {
 	@Id
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(name = "sex", nullable = false, length = 10)

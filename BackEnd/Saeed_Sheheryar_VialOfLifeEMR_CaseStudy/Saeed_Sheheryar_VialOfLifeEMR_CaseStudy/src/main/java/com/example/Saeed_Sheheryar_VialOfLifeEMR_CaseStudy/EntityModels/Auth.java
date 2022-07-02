@@ -26,6 +26,7 @@ public class Auth {
 	private Integer emtId;
 	
 	@OneToOne
+    @JoinColumn(name = "recordId", referencedColumnName = "id")
     private Record record;
 	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

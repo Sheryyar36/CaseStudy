@@ -37,8 +37,9 @@ public class CreateController {
 	@PostMapping()
 	public String createRecord(@ModelAttribute("record") Record record, HttpSession session, Authentication authentication ) {
 		Auth currentUser = authservice.findByEmail(authentication.getName());
-		currentUser.setRecord(record);
-		System.out.println("record created");
+		currentUser.setRecord(recordservice.createRecord(record));
+		
+		System.out.println("record created:" + currentUser.getRecord().toString());
 		return "redirect:/results";
 		
 	}
