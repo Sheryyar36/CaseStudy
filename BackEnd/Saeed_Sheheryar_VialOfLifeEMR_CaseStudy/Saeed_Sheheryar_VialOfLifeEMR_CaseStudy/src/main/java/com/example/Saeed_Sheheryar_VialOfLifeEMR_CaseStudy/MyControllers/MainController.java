@@ -44,10 +44,7 @@ public class MainController {
 	public String contact() {
 		return "contact";
 	}
-	@GetMapping("/results")
-	public String results() {
-		return "results";
-	}
+	
 	@ResponseBody
 	@GetMapping("/logoutSuccess")
     public String logoutResponse()

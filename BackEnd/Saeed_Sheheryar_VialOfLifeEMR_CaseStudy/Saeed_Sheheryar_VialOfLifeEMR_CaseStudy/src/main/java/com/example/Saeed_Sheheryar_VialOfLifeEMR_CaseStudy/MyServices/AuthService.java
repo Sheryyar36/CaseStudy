@@ -10,4 +10,6 @@ public interface AuthService extends UserDetailsService{
 	Auth findByEmail(String email);
 	
 	Auth saveAuth(AuthRegDto authregdto);
+
+	Auth updateAuth(Auth currentUser);
 }

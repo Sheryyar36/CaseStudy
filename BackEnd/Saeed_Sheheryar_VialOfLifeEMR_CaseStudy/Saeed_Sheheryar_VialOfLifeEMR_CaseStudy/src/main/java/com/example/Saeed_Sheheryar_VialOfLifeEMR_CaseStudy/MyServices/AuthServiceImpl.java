@@ -49,7 +49,7 @@ public class AuthServiceImpl implements AuthService{
 	
 	@Override
 	   public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-	       System.out.println("authrepo find by email");
+	       System.out.println("authrepo find by email: " + email.toString());
 			Auth auth = authrepo.findByEmail(email);
 	       System.out.println("email searched");
 	       if (auth == null){
@@ -66,6 +66,12 @@ public class AuthServiceImpl implements AuthService{
 	       return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName()))
 	               .collect(Collectors.toList());
 	   }
+
+	@Override
+	public Auth updateAuth(Auth currentUser) {
+		// TODO Auto-generated method stub
+		return authrepo.saveAndFlush(currentUser);
+	}
 
 
 

@@ -38,8 +38,8 @@ public class CreateController {
 	public String createRecord(@ModelAttribute("record") Record record, HttpSession session, Authentication authentication ) {
 		Auth currentUser = authservice.findByEmail(authentication.getName());
 		currentUser.setRecord(recordservice.createRecord(record));
-		
-		System.out.println("record created:" + currentUser.getRecord().toString());
+		Auth userRecord = authservice.updateAuth(currentUser);
+		System.out.println("record created:" + userRecord.toString());
 		return "redirect:/results";
 		
 	}

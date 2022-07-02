@@ -13,25 +13,55 @@
     <header id="header"><h1>The Vial of Life EMR System</h1></header>
     <nav id="nav">
         <button class="button"><a href="index">About</a></button>
+        <button class="button"><a th:href="@{/logout}">Logout</a></button>
         <button class="button"><a href="contact">Contact</a></button>
     </nav>
     <div id="div"></div>
     <main id="main">
-        <h1>Please Login:</h1>
+        <h1>Saved Results:</h1>
         <br>
         <br>
-        <div><form action="" id="loginform">
-            <label for="username">Username:</label>
-            <input type="text">
-            <br>
-            <br>
-            <label for="password">Password:</label>
-            <input type="password">
-            <br>
-            <br>
-            <input name="login" type="submit" value="Login!">
-        </form></div>
-
+        <div>
+		<table>
+			<thead>
+				<tr>
+					<th>Patient Full Name:</th>
+					<th>DOB:</th>
+					<th>Sex:</th>
+					<th>Address:</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td th:text = "${currentUser.fullname}"></td>
+					<td th:text = "${currentUser.DOB}"></td>
+					<td th:text = "${currentUser.record.sex}"></td>
+					<td th:text = "${currentUser.record.address}"></td>
+				</tr>
+			</tbody>
+		
+		</table>
+	<br>
+	<br>
+		<table>
+			<thead>
+				<tr>
+					<th>Allergies:</th>
+					<th>Medications:</th>
+					<th>Other History:</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td th:text = "${currentUser.record.allergies}"></td>
+					<td th:text = "${currentUser.record.medications}"></td>
+					<td th:text = "${currentUser.record.history}"></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
     </main>
     <footer id="footer">&copy; 2022 Sheheryar Saeed</footer>
     <section id="section"><img th:src="@{/img/phonepic.png}" alt="phone icon"><h2>In case of EMERGENCY Call 911!</h2></section>

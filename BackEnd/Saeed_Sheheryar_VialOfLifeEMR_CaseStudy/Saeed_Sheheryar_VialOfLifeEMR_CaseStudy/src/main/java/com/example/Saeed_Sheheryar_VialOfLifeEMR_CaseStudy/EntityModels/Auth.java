@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class Auth {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 	@Column(name = "fullname", nullable = false, length = 50)
 	private String fullname;
@@ -25,8 +26,12 @@ public class Auth {
 	@Column(name = "emtid", nullable = true)
 	private Integer emtId;
 	
-	@OneToOne
-    @JoinColumn(name = "recordId", referencedColumnName = "id")
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinTable(name = "auth_record", 
+      joinColumns = 
+        { @JoinColumn(name = "auth_id", referencedColumnName = "id") },
+      inverseJoinColumns = 
+        { @JoinColumn(name = "record_id", referencedColumnName = "id") })
     private Record record;
 	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
