@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.Auth;
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyRepos.AuthRegDto;
@@ -31,11 +32,8 @@ public class SearchController {
 	}
 	
 	@PostMapping
-	   public String registerAuth(@ModelAttribute("searchdto") SearchDto searchdto){
-		System.out.println(searchdto.getEmail());
-		Auth searchedRecord = authservice.findByEmail(searchdto.getEmail());
-		Auth filteredRecord = authservice.updateAuth(searchedRecord);
-		System.out.println("searchedRecord: " + filteredRecord.toString());
+	   public String registerAuth(@ModelAttribute("searchdto") final SearchDto searchdto, final RedirectAttributes redirectattributes){
+		redirectattributes.addFlashAttribute("searchdto", searchdto);
 		return "redirect:/searchedresults";
 	   
 		
