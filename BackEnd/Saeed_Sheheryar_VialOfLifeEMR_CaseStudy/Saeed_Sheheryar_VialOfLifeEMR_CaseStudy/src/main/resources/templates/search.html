@@ -21,13 +21,9 @@
         <h1>Search Vials:</h1>
         <br>
         <br>
-        <div><form action="" id="registerform">
-            <label for="fullname">Enter Full Name:</label>
-            <input type="text">
-            <br>
-            <br>
-            <label for="DOB">Enter Date of Birth:</label>
-            <input type="date">
+        <div><form th:action ="@{/search}" th:object ="${searchdto}" method ="post"  id="registerform">
+            <label for="patientemail">Enter Patient Email:</label>
+            <input type="text" th:field="*{email}">
             <br>
             <br>
             <input name="search" type="submit" value="Search!"> 

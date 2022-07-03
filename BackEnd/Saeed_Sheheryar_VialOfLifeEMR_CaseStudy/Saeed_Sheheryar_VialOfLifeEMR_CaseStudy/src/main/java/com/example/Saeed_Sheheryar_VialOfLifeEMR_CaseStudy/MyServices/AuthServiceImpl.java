@@ -2,6 +2,7 @@ package com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyServices;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,10 +70,8 @@ public class AuthServiceImpl implements AuthService{
 
 	@Override
 	public Auth updateAuth(Auth currentUser) {
-		// TODO Auto-generated method stub
 		return authrepo.saveAndFlush(currentUser);
 	}
-
 
 
 

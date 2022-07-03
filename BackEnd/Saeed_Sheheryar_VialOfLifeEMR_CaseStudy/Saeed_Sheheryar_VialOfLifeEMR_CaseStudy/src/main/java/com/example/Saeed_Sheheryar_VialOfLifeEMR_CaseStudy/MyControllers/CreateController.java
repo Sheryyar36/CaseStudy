@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.Record;
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.EntityModels.Auth;
-import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyRepos.RecordDto;
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyServices.AuthService;
 import com.example.Saeed_Sheheryar_VialOfLifeEMR_CaseStudy.MyServices.RecordService;
 

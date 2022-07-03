@@ -132,7 +132,7 @@ public class Record {
 	@Override
 	public String toString() {
 		return "Record [id=" + id + ", sex=" + sex + ", address=" + address + ", allergies=" + allergies
-				+ ", medications=" + medications + ", history=" + history + ", auth=" + auth + "]";
+				+ ", medications=" + medications + ", history=" + history + "]";
 	}
 
 	

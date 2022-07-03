@@ -36,10 +36,7 @@ public class MainController {
 		}
 	}
 	
-	@GetMapping("/search")
-	public String search() {
-		return "search";
-	}
+
 	@GetMapping("/contact")
 	public String contact() {
 		return "contact";
